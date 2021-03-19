@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HIS-Reg-1</title>
+<link href="../css/common.css" rel="stylesheet" type="text/css">
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+<script src="../js/jquery-3.3.1.min.js"></script>
+<script src="../js/layer/layer.js"></script>
+<script>
+    function registerMsg(){
+        //判断必填项是否为空
+        console.log(document.reginfo_form.regDate.value);
+        if(document.reginfo_form.mrn.value===null||document.reginfo_form.mrn.value===""){
+            layer.tips("该项为空","#mrn");
+        }else if(document.reginfo_form.name.value===null||document.reginfo_form.name.value===""){
+            layer.tips("该项为空","#name");
+        }else if(document.reginfo_form.gender.value===null||document.reginfo_form.gender.value===""){
+            layer.tips("该项为空","#gender");
+        }else if(document.reginfo_form.patientId.value===null||document.reginfo_form.patientId.value===""){
+            layer.tips("该项为空","#patientId");
+        }else if(document.reginfo_form.age.value===null||document.reginfo_form.age.value===""){
+            layer.tips("该项为空","#age");
+        }else if(document.reginfo_form.deptId.value==="0"){
+            layer.tips("该项为空","#deptId");
+        }else if(document.reginfo_form.regLevel.value==="0"){
+            layer.tips("该项为空","#regLevel");
+        }else if(document.reginfo_form.regDoctor.value==="0"){
+            layer.tips("该项为空","#regDoctor");
+        }else if(document.reginfo_form.regDate.value===null||document.reginfo_form.regDate.value===""){
+            layer.tips("该项为空","#regDate");
+        }else if(document.reginfo_form.morAfter.value==="0"){
+            layer.tips("该项为空","#morAfter");
+        }else if(document.reginfo_form.payType.value==="0"){
+            layer.tips("该项为空","#payType");
+        }else {
+            //提交后台
+            layer.msg("挂号成功");
+            document.reginfo_form.reset();
+        }
+    }
+</script>
+</head>
+
+<body>
+<div style="width:100%; height: 600px; background: #D0E7E8;">
+    <form method="post" name="reginfo_form" id="reginfo_form" style="margin-left: 2%;">
+        <table width="100%" height="100%" border="0">
+            <tbody>
+            <tr>
+                <td><label class="label">挂号信息</label></td>
+                <td>&nbsp;</td>
+                <td><input type="button" class="button" value="挂号" onClick="registerMsg()"></td>
+                <td><input type="reset" class="button" value="清除"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label class="label">病历本编号:</label></td>
+                <td><input type="text" class="input must" id="mrn" name="mrn" placeholder="输入病历本编号"></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label class="label">病人姓名:</label></td>
+                <td><input type="text" class="input must" id="name" name="name" placeholder="输入姓名"></td>
+                <td><label class="label">性别:</label></td>
+                <td><input type="text" class="input must" id="gender" name="gender" placeholder="输入性别"></td>
+                <td><label class="label">地址:</label></td>
+                <td><input type="text" class="input" id="address" name="address" style="width:auto" placeholder="输入地址(选填)"></td>
+            </tr>
+            <tr>
+                <td><label class="label">省份证号:</label></td>
+                <td><input type="text" class="input must" id="patientId" name="patientId" placeholder="输入身份证号"></td>
+                <td><label class="label">出生日期:</label></td>
+                <td><input type="date" class="input" id="birthday" name="birthday" placeholder="选择出生日期(选填)"></td>
+                <td><label class="label">年龄:</label></td>
+                <td><input type="number" step="1" min="0" max="150" class="input" id="age" name="age" placeholder="输入年龄"></td>
+            </tr>
+            <tr>
+                <td><label class="label">挂号科室:</label></td>
+                <td>
+                    <select name="deptId" class="input" id="deptId" style="height: 32px;">
+                        <option selected value="0">--请选择--</option>
+                        <option value="${deptId}">心血管内科</option>
+                    </select>
+                </td>
+                <td><label class="label">号别:</label></td>
+                <td>
+                    <select name="regLevel" class="input" id="regLevel" style="height: 32px;">
+                        <option selected value="0">--请选择--</option>
+                        <option value="1">专家号</option>
+                        <option value="2">急诊号</option>
+                        <option value="3">普通号</option>
+                    </select>
+                </td>
+                <td><label class="label">医生:</label></td>
+                <td>
+                    <select name="regDoctor" class="input" id="regDoctor" style="height: 32px;">
+                        <option selected value="0">--请选择--</option>
+                        <option value="${doc_id}">母浩兵</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="label">挂号日期:</label></td>
+                <td><input type="date" class="input" id="regDate" name="regDate" placeholder="选择挂号日期"></td>
+                <td><label class="label">午别:</label></td>
+                <td>
+                    <select name="morAfter" class="input" id="morAfter" style="height: 32px;">
+                        <option selected value="0">--请选择--</option>
+                        <option value="上午">上午</option>
+                        <option value="下午">下午</option>
+                    </select>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td><label class="label">挂号金额:</label></td>
+                <td><input type="text" class="input" id="regPrice" name="regPrice" placeholder="挂号金额" readonly></td>
+                <td><label class="label">结算类型:</label></td>
+                <td>
+                    <select name="payType" class="input" id="payType" style="height: 32px;">
+                        <option selected value="0">--请选择--</option>
+                        <option value="${payType_id}">支付宝</option>
+                    </select>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML表单</title>
+</head>
+<body>
+
+<!--表单是一个包含表单元素的区域-->
+<!--表单元素是允许用户在表单中输入内容,比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等。-->
+
+<!--多数情况下被用到的表单标签是输入标签(<input>), 输入类型是由类型属性(type)定义的-->
+
+<h4>文本域 Text Field</h4>
+<form action="">
+    First Name:<label><input type="text" name="firstname"></label>
+    <br>
+    Last Name:<label><input type="text" name="lastname" ></label>
+    <br>
+</form>
+
+<h4>密码字段</h4>
+<form action="">
+    Password: <label><input type="password" name="pwd"></label><!--密码字段字符不会明文显示，而是以星号或圆点替代。-->
+</form>
+
+<h4>单选按钮(Radio Buttons)</h4>
+<form>
+    <!--同一组的单选按钮，name 取值一定要一致-->
+    <!--value：提交数据到服务器的值(后台程序PHP使用)-->
+    <!--name：为控件命名，以备后台程序 ASP、PHP 使用-->
+    <!--checked：当设置 checked="checked" 时，该选项被默认选中-->
+    <label><input type="radio" name="sex" value="male">Male</label>
+    <br>
+    <label><input type="radio" name="sex" value="female">Female</label>
+</form>
+
+<h4>复选框(Checkboxes)</h4>
+<form>
+    <label>
+        <input type="checkbox" name="vehicle" value="Bike">I have a bike
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="vehicle" value="Car">I have a car
+    </label>
+</form>
+
+<h4>提交按钮(Submit Button)</h4>
+<!--当用户单击确认按钮时，表单的内容会被传送到另一个文件。表单的动作属性定义了目的文件的文件名。-->
+<!--由动作属性定义的这个文件通常会对接收到的输入数据进行相关的处理。-->
+<form name="input" action="" method="get">
+    Username: <label><input type="text" name="user"></label>
+    <input type="submit" value="Submit">
+</form>
+
+<h4>下拉列表</h4>
+<form action="">
+    <label>
+        <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+    </label>
+</form>
+
+<h4>预选下拉列表</h4>
+<form action="">
+    <label>
+        <select name="cars"><!--定义了下拉选项列表-->
+            <option value="volvo">Volvo</option><!--定义下拉列表中的选项-->
+            <option value="saab">Saab</option>
+            <option value="fiat" selected>Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+    </label>
+</form>
+
+<h4>按钮 Button</h4>
+<form action="">
+    <input type="button" value="Hello world!">
+    <input type="reset" name="button" id="button" value="重置">
+</form>
+
+<h4>带边框的表单</h4>
+<form action="">
+    <fieldset><!--定义了一组相关的表单元素，并使用外框包含起来-->
+        <legend>Personal information:</legend><!--定义了 <fieldset> 元素的标题-->
+        Name: <label><input type="text" size="30"></label><br>
+        E-mail: <label><input type="text" size="30"></label><br>
+        Date of birth: <label><input type="text" size="10"></label>
+    </fieldset>
+</form>
+
+<h4>从表单发送电子邮件</h4>
+<form action="" method="post" enctype="text/plain">
+    Name:<br>
+    <label>
+        <input type="text" name="name" value="">
+    </label><br>
+    E-mail:<br>
+    <label>
+        <input type="text" name="mail" value="">
+    </label><br>
+    Comment:<br>
+    <label>
+        <input type="text" name="comment" value="" size="50">
+    </label><br><br>
+    <input type="submit" value="发送">
+    <input type="reset" value="重置">
+</form>
+
+
+</body>
+</html>

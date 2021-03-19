@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML脚本</title>
+</head>
+<body>
+
+<!--<script> 标签用于定义客户端脚本，比如 JavaScript。<script> 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。-->
+<!--JavaScript 最常用于图片操作、表单验证以及内容动态更新。-->
+<script>
+    document.write("Hello World!")
+</script>
+<noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
+<!--<noscript> 标签提供无法使用脚本时的替代内容，比方在浏览器禁用脚本时，或浏览器不支持客户端脚本时。-->
+<!--<noscript> 元素可包含普通 HTML 页面的 body 元素中能够找到的所有元素。-->
+<!--只有在浏览器不支持脚本或者禁用脚本时，才会显示 <noscript> 元素中的内容-->
+
+<p>
+    JavaScript 能够直接写入 HTML 输出流中：
+</p>
+<script>
+    document.write("<h3>这是一个标题</h3>");
+    document.write("<p>这是一个段落:</p>");
+</script>
+<p>
+    您只能在 HTML 输出流中使用 <strong>document.write</strong>。
+    如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+</p>
+
+
+<h1>JavaScript</h1>
+<p id="demo">
+    JavaScript 可以触发事件，就像按钮点击。
+</p>
+<script>
+    function myFunction_content()
+    {
+        document.getElementById("demo").innerHTML="Hello JavaScript!";
+    }
+</script>
+<button type="button" onclick="myFunction_content()">Click to change content</button>
+<br>
+
+<script>
+    function myFunction_color()
+    {
+        document.getElementById("demo").style.color="#ffa4d0"; // 找到元素并改变样式
+    }
+</script>
+<button type="button" onclick="myFunction_color()">Click to change color....</button>
+
+</body>
+</html>

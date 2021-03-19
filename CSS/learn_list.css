@@ -1,0 +1,36 @@
+/*CSS列表*/
+
+ol{
+    list-style-type: lower-latin;/*设置列表项标志的类型*/
+}
+
+ul{
+    list-style-type: circle;
+}
+
+ul{
+    list-style-image: none;/*将图象设置为列表项标志*/
+}/*指定列表项标记的图像*/
+
+/*浏览器兼容*/
+ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+ul li
+{
+    background-image: url("css_weight.png");
+    background-repeat: no-repeat;
+    background-position: 0 5px;
+    padding-left: 14px;
+}
+
+/*
+列表 -简写属性
+ */
+ul
+{
+    list-style: square url("css_weight.png");
+}

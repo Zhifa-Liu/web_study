@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 捕获</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#btn1").click(function(){
+                alert("Text: " + $("#test_1").text());
+            });
+            $("#btn2").click(function(){
+                alert("HTML: " + $("#test_1").html());
+            });
+        });
+        $(document).ready(function(){
+            $("#button").click(function(){
+                alert("值为: " + $("#test_2").val());
+            });
+        });
+        $(document).ready(function(){
+            $("#btn3").click(function(){
+                alert($("#runoob").attr("href"));
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<p id="test_1">段落 <b>粗体</b> 文本</p>
+<button id="btn1">显示段落</button>
+<button id="btn2">显示 HTML</button>
+<p>名称: <input type="text" id="test_2" value="菜鸟教程"></p>
+<button id="button">显示文本框的值</button>
+<p><a href="//www.runoob.com" id="runoob">菜鸟教程</a></p>
+<button id="btn3">显示 href 属性的值</button>
+
+</body>
+</html>

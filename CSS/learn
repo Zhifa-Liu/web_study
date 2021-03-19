@@ -1,0 +1,494 @@
+1. CSS语法
+
+CSS 规则由两个主要的部分构成------选择器，以及一条或多条声明:
+选择器通常是您需要改变样式的HTML元素;
+每条声明由一个属性和一个值组成,
+其中, 属性(property)是您希望设置的样式属性(style attribute), 每个属性有一个值, 属性和值被冒号分开;
+并且, CSS声明总是以分号(;)结束，声明总以大括号({})括起来;
+CSS注释以 "/*" 开始, 以 "*/" 结束
+
+2. CSS Id 和 Class 选择器
+
+2.1 Id 选择器
+id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式;
+HTML元素以id属性来设置id选择器，CSS 中 id 选择器以 "#" 来定义;
+ID属性不要以数字开头，数字开头的ID在 Mozilla/Firefox 浏览器中不起作用;
+
+2.2 Class 选择器
+class 选择器用于描述一组元素的样式，class 选择器有别于id选择器，class可以在多个元素中使用;
+class 选择器在HTML中以class属性表示, 在 CSS 中，类选择器以一个点"."号显示;
+类名的第一个字符不能使用数字！它无法在 Mozilla 或 Firefox 中起作用;
+
+3. 样式表插入(3.html\3.css)
+
+4. CSS 分组 和 嵌套 选择器
+4.1 分组选择器
+在样式表中有很多具有相同样式的元素; 为了尽量减少代码，你可以使用分组选择器, 每个选择器用逗号分隔.
+h1,h2,p
+{
+    color:green;
+}
+4.2 嵌套选择器
+适用于选择器内部的选择器的样式;
+p{ }: 为所有 p 元素指定一个样式;
+.marked{ }: 为所有 class="marked" 的元素指定一个样式;
+.marked p{ }: 为所有 class="marked" 元素内的 p 元素指定一个样式;
+p.marked{ }: 为所有 class="marked" 的 p 元素指定一个样式;
+
+p
+{
+    color:blue;
+    text-align:center;
+}
+.marked
+{
+    background-color:red;
+}
+.marked p
+{
+    color:white;
+}
+p.marked{
+    text-decoration:underline;
+}
+
+5. CSS 尺寸
+
+CSS 尺寸 (Dimension) 属性允许你控制元素的高度和宽度; 同样，它允许你增加行间距。
+
+height 设置元素的高度。
+line-height 设置行高。
+max-height 设置元素的最大高度。
+max-width 设置元素的最大宽度。
+min-height 设置元素的最小高度。
+min-width 设置元素的最小宽度。
+width 设置元素的宽度。
+
+6. CSS Display(显示) 与 Visibility(可见性)
+6.1
+display属性设置一个元素应如何显示，visibility属性指定一个元素可见还是隐藏;
+6.2
+隐藏一个元素可以通过把display属性设置为"none"，或把visibility属性设置为"hidden";
+但是请注意，这两种方法会产生不同的结果:
+visibility:hidden可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间;
+也就是说，该元素虽然被隐藏了，但仍然会影响布局。
+display:none可以隐藏某个元素，且隐藏的元素不会占用任何空间;
+也就是说，该元素不但被隐藏了，而且该元素原本占用的空间也会从页面布局中消失。
+6.3
+当设置元素 visibility: collapse 后，一般的元素的表现与 visibility: hidden 一样，也即其会占用空间。
+但如果该元素是与 table 相关的元素，例如 table row、table column、table column group、table column group 等，
+其表现却跟 display: none 一样，也即其占用的空间会释放。
+!!!
+在不同浏览器下，对 visibility: collapse 的处理方式不同：
+ 1、visibility: collapse 的上述特性仅在 Firefox 下起作用。
+ 2、在 IE 即使设置了 visibility: collapse，还是会显示元素。
+ 3、在 Chrome 下，即使会将元素隐藏，但无论是否是与 table 相关的元素，
+ visibility: collapse 与 visibility: hidden 没有什么区别，即仍会占用空间。
+6.4
+CSS Display - 块和内联元素
+
+6.4.1 块级元素
+块元素是一个元素，占用了全部宽度，在前后都是换行符;
+块元素的例子：<h1>\<p>\<div>
+
+内联元素只需要必要的宽度，不强制换行;
+内联元素的例子：<span>\<a>
+
+可变元素(根据上下文关系确定该元素是块元素还是内联元素:applet ,button ,del ,iframe , ins ,map ,object , script);
+
+如何改变一个元素显示?
+可以更改内联元素和块元素，反之亦然，可以使页面看起来是以一种特定的方式组合，并仍然遵循web标准。
+下面的示例把列表项显示为内联元素：li {display:inline;}
+下面的示例把span元素作为块元素：span {display:block;}
+
+7. CSS Position(定位)
+position 属性指定了元素的定位类型;
+7.1
+static 定位：
+HTML 元素的默认值，即没有定位，遵循正常的文档流对象;
+静态定位的元素不会受到 top, bottom, left, right影响。
+7.2
+fixed 定位：
+元素的位置相对于浏览器窗口是固定位置;即使窗口是滚动的它也不会移动。
+(Fixed定位使元素的位置与文档流无关，因此不占据空间；Fixed定位的元素和其他元素重叠)
+7.3
+relative 定位：
+相对定位元素的定位是相对其正常位置;
+h2
+{
+    position:relative;
+    left:-20px;
+}
+移动相对定位元素，但它原本所占的空间不会改变;
+相对定位元素经常被用来作为绝对定位元素的容器块;
+7.4
+absolute 定位:
+绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>;
+absolute 定位使元素的位置与文档流无关，因此不占据空间;absolute 定位的元素和其他元素重叠。
+7.5
+sticky 定位:
+sticky 英文字面意思是粘，粘贴，所以可以把它称之为粘性定位;
+sticky定位基于用户的滚动位置来定位;
+粘性定位的元素是依赖于用户的滚动，在 position:relative 与 position:fixed 定位之间切换:
+它的行为就像 position:relative; 而当页面滚动超出目标区域时，它的表现就像 position:fixed，它会固定在目标位置。
+元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。
+这个特定阈值指的是 top, right, bottom 或 left 之一，
+换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效; 否则其行为与相对定位相同。
+7.6
+重叠的元素：
+元素的定位与文档流无关，所以它们可以覆盖页面上的其它元素;
+z-index属性指定了一个元素的堆叠顺序(哪个元素应该放在前面，或后面);
+具有更高堆叠顺序的元素总是在较低的堆叠顺序元素的前面;
+
+8.CSS Overflow
+
+CSS overflow 属性用于控制内容溢出元素框时显示的方式;
+CSS overflow 属性可以控制内容溢出元素框时在对应的元素区间内添加滚动条;
+
+overflow属性有以下值：
+visible 默认值，内容不会被修剪，会呈现在元素框之外;
+hidden 内容会被修剪，并且其余内容是不可见的;
+scroll 内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容;
+auto 如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容;
+inherit 规定应该从父元素继承 overflow 属性的值;
+
+9.CSS Float
+
+CSS 的 Float(浮动)，会使元素向左或向右移动，其周围的元素也会重新排列;
+Float(浮动)，往往是用于图像，但它在布局时一样非常有用;
+
+元素的水平方向浮动，意味着元素只能左右移动而不能上下移动。
+一个浮动元素会尽量向左或向右移动，直到它的外边缘碰到包含框或另一个浮动框的边框为止。
+浮动元素之后的元素将围绕它。
+浮动元素之前的元素将不会受到影响。
+
+元素浮动之后，周围的元素会重新排列，为了避免这种情况，使用 clear 属性。
+clear 属性指定元素两侧不能出现浮动元素。
+
+10.CSS 布局 - 水平 & 垂直 对齐
+在父元素上添加 overflow: auto，解决子元素溢出的问题:
+.clearfix {
+    overflow: auto;
+}
+
+元素居中对齐：margin：auto;
+文本居中对齐：text-align: center;
+图片居中对齐：
+使用 margin: auto，并将它放到 块 元素中>
+img {
+    display: block;
+    margin: auto;
+    width: 40%;
+}
+左右对齐-使用定位方式：
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+左右对齐 - 使用 float 方式：
+.right {
+    float: right;
+    width: 300px;
+    border: 3px solid #73AD21;
+    padding: 10px;
+}
+
+垂直居中对齐 - 使用 padding:
+.center {
+    padding: 70px 0;
+    border: 3px solid green;
+}
+
+垂直居中 - 使用 line-height:
+.center {
+    line-height: 200px;
+    height: 200px;
+    border: 3px solid green;
+    text-align: center;
+}
+.center p {
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+设置容器上下 padding 相同实现垂直居中和使用 line-height=height 实现垂直居中仅对单行文本有效，当文本行数超过单行时：
+1)padding：文本仍然处于容器垂直居中的位置，但是容器的 height 会随着文本行数的增加而增大；
+2)line-height=height：容器的 height 不变，line-height 是文本的行间距，文本会溢出容器显示；
+多行文本可使用 vertical-align: middle，来实现元素的垂直居中，
+但是如果子元素的内容体积大于父元素的内容体积时，仍然会溢出，后面需要使用文字溢出处理来解决。
+
+垂直居中 - 使用 position 和 transform:
+.center {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+}
+.center p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+11.CSS 组合选择符
+
+组合选择符说明了两个选择器直接的关系;
+
+CSS3 包含的四种组合方式:
+后代选择器(以空格分隔; 用于选取某元素的后代元素)
+子元素选择器(以大于号分隔; 只能选择作为某元素子元素的元素)
+相邻兄弟选择器(以加号分隔; 选择紧接在另一元素后的元素，且二者有相同父元素）
+普通兄弟选择器(以破折号分隔)
+后续兄弟选择器(以~分隔; 选取所有指定元素之后的相邻兄弟元素)
+
+12.CSS 伪类(Pseudo-classes) 与 伪元素
+CSS伪类与为元素是用来添加一些选择器的特殊效果;
+
+12.1 CSS 伪类
+伪类选择元素基于的是当前元素处于的状态，或者说元素当前所具有的特性，而不是元素的id、class、属性等静态的标志;
+由于状态是动态变化的，所以一个元素达到一个特定状态时，它可能得到一个伪类的样式；当状态改变时，它又会失去这个样式;
+由此可以看出，它的功能和class有些类似，但它是基于文档之外的抽象，所以叫伪类。
+
+伪类语法：
+selector:pseudo-class {property:value;}
+selector.class:pseudo-class {property:value;}(CSS类也可以使用伪类)
+
+CSS :first-child 伪类
+:first-child 伪类选择父元素的第一个子元素
+匹配作为任何元素的第一个子元素的 <p> 元素
+{
+    color:blue;
+}
+匹配所有<p> 元素中的第一个 <i> 元素:
+p > i:first-child
+{
+    color:blue;
+}
+匹配所有作为第一个子元素的 <p> 元素中的所有 <i> 元素:
+p:first-child i
+{
+    color:blue;
+}
+
+CSS :lang伪类
+:lang 伪类使你有能力为不同的语言定义特殊的规则
+
+12.2 CSS 伪元素
+与伪类针对特殊状态的元素不同的是，伪元素是对元素中的特定内容进行操作，它所操作的层次比伪类更深了一层，也因此它的动态性比伪类要低得多;
+实际上，设计伪元素的目的就是去选取诸如元素内容第一个字(母)、第一行，选取某些内容前面或后面这种普通的选择器无法完成的工作;
+它控制的内容实际上和元素是相同的，但是它本身只是基于元素的抽象，并不存在于文档中，所以叫伪元素;
+
+伪元素的语法：
+selector:pseudo-element {property:value;}
+selector.class:pseudo-element {property:value;}(CSS类也可以使用伪元素)
+
+:first-line 伪元素:
+"first-line" 伪元素用于向文本的首行设置特殊样式;
+"first-line" 伪元素只能用于块级元素;
+:first-letter 伪元素:
+"first-letter" 伪元素用于向文本的首字母设置特殊样式;
+"first-letter" 伪元素只能用于块级元素;
+
+13.CSS 导航栏
+导航条基本上是一个链接列表(导航栏=链接列表)，所以使用 <ul> 和 <li>元素非常有意义;
+
+垂直导航栏
+
+水平导航栏
+创建横向导航栏的两种方法：
+使用内联(inline)或浮动(float)的列表项;
+li
+{
+    display:inline;
+}
+li
+{
+    float:left;
+}
+
+14.CSS 下拉菜单
+使用 CSS 创建一个鼠标移动上去后显示下拉菜单的效果;
+如果你想设置右浮动的下拉菜单内容方向是从右到左，而不是从左到右，可以添加以下代码 right: 0;
+
+15.CSS 提示工具
+提示工具在鼠标移动到指定元素后触发;
+
+定位提示工具：
+(1)显示在右侧：
+.tooltip .tooltiptext {
+    top: -5px;
+    left: 105%;
+}
+(2)显示在左侧：
+.tooltip .tooltiptext {
+    top: -5px;
+    right: 105%;
+}
+(3)显示在头部：
+.tooltip .tooltiptext {
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; /* 使用一半宽度 (120/2 = 60) 来居中提示工具 */
+}
+(4)显示在底部:
+.tooltip .tooltiptext {
+    width: 120px;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px; /* 使用一半宽度 (120/2 = 60) 来居中提示工具 */
+}
+
+添加箭头:
+用CSS 伪元素 ::after 及 content 属性为提示工具创建一个小箭头标志，箭头是由边框组成的，但组合起来后提示工具像个语音信息框。
+
+顶部提示框/底部箭头：
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* 箭头显示在提示工具底部 */
+    left: 50%; /* 居中对齐箭头 */
+    margin-left: -5px;
+    border-width: 5px;/* 指定箭头的大小。如果你修改它，也要修改 margin-left 值，这样箭头在能居中显示。 */
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    /*
+    border-color 用于将内容转换为箭头，设置顶部边框为黑色，其他是透明的。
+    如果设置了其他的也是黑色则会显示为一个黑色的四边形。
+    */
+}
+底部提示框/顶部箭头：
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* 提示工具头部 */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+16.CSS 图片栏/ CSS 图像透明度
+
+17.CSS 图像拼合技术
+图像拼合就是单个图像的集合;
+有许多图像的网页可能需要很长的时间来加载和生成多个服务器的请求;
+使用图像拼合会降低服务器的请求数量，并节省带宽;
+
+18.CSS 媒体类型
+媒体类型允许你指定文件将如何在不同媒体呈现; 该文件可以以不同的方式显示在屏幕上，在纸张上，或听觉浏览器等等。
+
+一些 CSS 属性只设计了某些媒体。
+例如 voice-family 属性是专为听觉用户代理。
+其他一些属性可用于不同的媒体类型。
+例如，font-size 属性可用于屏幕和印刷媒体，但有不同的值。
+屏幕和纸上的文件不同，通常需要一个更大的字体，sans-serif 字体比较适合在屏幕上阅读，而 serif 字体更容易在纸上阅读。
+
+@media 规则:
+@media 规则允许在相同样式表为不同媒体设置不同的样式。
+
+all 用于所有的媒体设备。
+aural 用于语音和音频合成器。
+braille 用于盲人用点字法触觉回馈设备。
+embossed 用于分页的盲人用点字法打印机。
+handheld 用于小的手持的设备。
+print 用于打印机。
+projection 用于方案展示，比如幻灯片。
+screen 用于电脑显示器。
+tty 用于使用固定密度字母栅格的媒体，比如电传打字机和终端。
+tv 用于电视机类型的设备。
+
+19.CSS 属性选择器
+属性选择器：
+/*改变包含标题（title）的所有元素的颜色*/
+[title]
+{
+    color:blue;
+}
+属性和值的选择器：
+/*改变标题title='runoob'元素的边框样式*/
+[title=runoob]
+{
+    border:5px solid green;
+}
+属性和值的选择器-多值：
+[title~=hello] { color:blue; }(包含指定值的title属性的元素样式的例子)
+[lang|=en] { color:blue; }(包含指定值的lang属性的元素样式的例子)
+表单样式：
+input[type="text"]
+{
+    width:150px;
+    display:block;
+    margin-bottom:10px;
+    background-color:yellow;
+}
+input[type="button"]
+{
+    width:120px;
+    margin-left:35px;
+    display:block;
+}
+
+20.CSS 表单
+(1)输入框(input) 图标:
+如果你想在输入框中添加图标，可以使用 background-image 属性和用于定位的background-position 属性。
+注意设置图标的左边距，让图标有一定的空间：
+input[type=text] {
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+(2)带动画的搜索框:
+input[type=text] {
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+  width: 100%;
+}
+
+21.CSS 计数器
+CSS 计数器通过一个变量来设置，根据规则递增变量;
+
+(1)使用计数器自动编号:
+
+CSS 计数器根据规则来递增变量;
+CSS 计数器使用到以下几个属性：
+counter-reset - 创建或者重置计数器
+counter-increment - 递增变量
+content - 插入生成的内容
+counter() 或 counters() 函数 - 将计数器的值添加到元素
+
+要使用 CSS 计数器，得先用 counter-reset 创建;
+以下实例在页面创建一个计数器 (在 body 选择器中)，每个 <h2> 元素的计数值都会递增，并在每个 <h2> 元素前添加 "Section <计数值>:"
+body {
+  counter-reset: section;
+}
+h2::before {
+  counter-increment: section;
+  content: "Section " counter(section) ": ";
+}
+
+(2)嵌套计数器
+
+22.CSS 网页布局
+(1)头部区域:
+头部区域位于整个网页的顶部，一般用于设置网页的标题或者网页的 logo;
+(2)菜单导航区域:
+菜单导航条包含了一些链接，可以引导用户浏览其他页面;
+(3)内容区域:
+内容区域一般有三种形式
+1 列：一般用于移动端
+2 列：一般用于平板设备
+3 列：一般用于 PC 桌面设备
+(4)底部区域:
+底部区域在网页的最下方，一般包含版权信息和联系方式等。

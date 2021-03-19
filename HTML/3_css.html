@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML CSS</title>
+    <!--内部样式表: 在HTML文档头部<head>区域使用<style>元素来包含CSS-->
+    <style type="text/css">
+        body {background-color: #ffeefb;}
+        p {color: #c2ffe7;}
+    </style><!--当单个文件需要特别样式时，就可以使用内部样式表。-->
+
+    <!--当样式需要被应用到很多页面的时候，外部样式表将是理想的选择。使用外部样式表，你就可以通过更改一个文件来改变整个站点的外观。-->
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+<body>
+
+<!--当特殊的样式需要应用到个别元素时，就可以使用内联样式。使用内联样式的方法是在相关的标签中使用样式属性。样式属性可以包含任何 CSS 属性。-->
+
+<div style="opacity: 0.5;position:absolute;left:50px;width:300px;height:100px;background-color: #faa4c5"></div>
+
+<h3>Look! Styles and colors</h3>
+
+<div style="letter-spacing:12px;">Manipulate Text</div>
+
+<div style="color:#40B3DF;">Colors
+    <span style="background-color:#b49327;color:#ffffff;">Boxes</span>
+</div>
+
+<div style="color:#000000;">and more...</div>
+
+<p style="color:#f2ff98;margin-left: 20px;">内联样式：HTML元素中使用style属性</p>
+
+<a href="//www.runoob.com/" style="text-decoration:none;">访问菜鸟教程</a>
+
+</body>
+</html>

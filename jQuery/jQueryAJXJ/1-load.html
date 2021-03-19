@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery AJAX load()</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#div_1").load("AJAX",function(responseTxt,statusTxt,xhr){
+                    if(statusTxt=="success")
+                        alert("外部内容加载成功!");
+                    if(statusTxt=="error")
+                        alert("Error: "+xhr.status+": "+xhr.statusText);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<button>获取外部内容</button>
+<div id="div_1">使用 jQuery AJAX 修改该文本</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<label for="fname">输入你的名字：</label><input type="text" id="fname" onchange="myFunction()">
+
+<script>
+    function myFunction(){
+        const x = document.getElementById("fname");
+        x.value=x.value.toUpperCase();
+    }
+</script>
+
+</body>
+</html>

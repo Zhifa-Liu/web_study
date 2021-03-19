@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery - AJAX get() 和 post()</title>
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.get("URL",function(data,status){
+                    alert("数据: " + data + "\n状态: " + status);
+                });
+            });
+        });
+        $("#btn").click(function(){
+            $.post("URL",{
+                    name:"菜鸟教程",
+                    url:"http://www.runoob.com"
+                },
+                function(data,status){
+                    alert("数据: \n" + data + "\n状态: " + status);
+                });
+        });
+    </script>
+</head>
+<body>
+
+<button>HTTP GET</button>
+<button id="#btn">HTTP POST</button>
+
+</body>
+</html>

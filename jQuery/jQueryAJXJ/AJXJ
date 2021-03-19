@@ -1,0 +1,23 @@
+什么是AJAX？
+AJAX = 异步 JavaScript 和 XML （Asynchronous JavaScript and XML）
+简短地说，在不重载整个网页的情况下，AJAX通过后台加载数据，并在网页上进行显示。
+
+关于jQuery与AJAX
+    通过jQuery AJAX方法，您能够使用HTTP Get和HTTP Post从远程服务器上请求文本、HTML、XML或JSON，
+同时您能够把这些外部数据直接载入网页的备选元素中。
+
+如果没有jQuery，AJAX编程还是有些难度的：
+    编写常规的AJAX代码并不容易，因为不同的浏览器对AJAX的实现并不相同，这意味着您必须编写额外的代码
+对浏览器进行测试。
+
+jQuery AJAX load():
+$(selector).load(URL,data,callback);//从服务器加载数据，并把返回的数据放入被选元素中
+必需的 URL 参数规定您希望加载的 URL （可以把 jQuery 选择器添加到 URL 参数）。
+可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。
+可选的 callback 参数是 load() 方法完成后所执行的函数名称。
+
+jQuery - AJAX get() 和 post():
+$.get(URL,callback);
+$.post(URL,data,callback);
+
+

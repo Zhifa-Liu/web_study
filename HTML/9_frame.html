@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML框架</title>
+</head>
+<body>
+
+<!--height 和 width 属性用来定义iframe标签的高度与宽度。-->
+<!--frame border 属性用于定义iframe表示是否显示边框。-->
+<iframe src="8_form.html" width="600" height="800" style="border-width: 0" ></iframe>
+
+<iframe src="8_form.html" name="iframe_a" width="600" height="800"></iframe>
+<p><a href="http://www.runoob.com" target="iframe_a">RUNOOB.COM</a></p>
+<!--标签<a>的 target 属性是名为 iframe_a 的 iframe 框架，所以在点击链接时页面会显示在iframe框架中。-->
+
+
+<!--把需要的文本放置在 <iframe> 和 </iframe> 之间，这样就可以应对不支持 <iframe> 的浏览器。-->
+<!--使用 CSS 为 <iframe> (包括滚动条) 定义样式-->
+</body>
+</html>

@@ -1,0 +1,74 @@
+/*CSS 表格*/
+
+/*
+表格边框：指定CSS表格边框，使用border属性。
+ */
+table, th, td
+{
+    border: 1px solid black;
+}
+
+/*
+折叠边框：border-collapse 属性设置表格的边框是否被折叠成一个单一的边框或隔开
+ */
+table
+{
+    border-collapse:collapse;
+}
+table,th, td
+{
+    border: 1px solid black;
+}
+
+/*
+表格高度和宽度：Width和height属性定义表格的宽度和高度
+ */
+table,td,th
+{
+    border:1px solid black;
+}
+table
+{
+    width:100%;
+}
+th
+{
+    height:50px;
+}
+
+/*
+表格文字对齐：text-align属性设置水平对齐方式，向左，右，或中心; 垂直对齐属性(vertical-align)设置垂直对齐，比如顶部，底部或中间
+ */
+
+td
+{
+    text-align:right;
+}
+
+td
+{
+    height:50px;
+    vertical-align:bottom;
+}
+
+/*
+表格填充
+ */
+td
+{
+    padding:15px;
+}
+
+/*
+表格颜色
+ */
+table, td, th
+{
+    border:1px solid green;
+}
+th
+{
+    background-color:green;
+    color:white;
+}
+

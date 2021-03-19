@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScripts 循环</title>
+</head>
+<body>
+
+<button onclick="myFunction()">Click</button>
+<p id="a"></p>
+<button onclick="thisFunction()">Click</button>
+<p id="b"></p>
+
+<script>
+    function myFunction(){
+        let x = "", i;
+        for (i=1; i<=6; i++){
+            x=x + "<h" + i + ">Heading " + i + "</h" + i + ">";
+            if (i === 6){
+                break;
+            }
+        }
+        /*
+
+        i = 1;
+        while (i<7){
+            if (i == 1){
+                continue;
+            }
+            x=x + "<h" + i + ">Heading " + i + "</h" + i + ">";
+            i++;
+        }
+
+        do{
+            x=x + "<h" + i + ">Heading " + i + "</h" + i + ">";
+            i++;
+        }while (i<7)
+
+        */
+
+
+        document.getElementById("a").innerHTML=x;
+    }
+
+    function thisFunction(){
+        let x;
+        let txt = "";
+        const person = {first_name: "Bill", last_name: "Gates", age: 56};
+        for (x in person){
+            txt=txt + x+": "+person[x]+"<br>";
+        }
+        document.getElementById("b").innerHTML=txt;
+    }
+</script>
+
+</body>
+</html>

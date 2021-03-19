@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+    <style>
+        canvas{
+            border:1px solid #000000;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas_1" width="200" height="100"></canvas>
+<canvas id="canvas_2" width="200" height="100"></canvas>
+<canvas id="canvas_3" width="200" height="100"></canvas>
+<canvas id="canvas_4" width="200" height="100"></canvas>
+<canvas id="canvas_5" width="200" height="100"></canvas>
+<canvas id="canvas_6" width="200" height="100"></canvas>
+<canvas id="canvas_7" width="200" height="100"></canvas>
+
+
+<script>
+    let c, ctx, grd;
+
+    c = document.getElementById("canvas_1");
+    ctx = c.getContext("2d");
+    ctx.fillStyle="#FF0000";
+    ctx.fillRect(20,10,160,80);
+
+    c = document.getElementById("canvas_2");
+    ctx = c.getContext("2d");
+    ctx.moveTo(0,0);
+    ctx.lineTo(200,100);
+    ctx.stroke();
+
+    c=document.getElementById("canvas_3");
+    ctx=c.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(100,50,40,0,2*Math.PI);
+    ctx.stroke();
+
+    c=document.getElementById("canvas_4");
+    ctx=c.getContext("2d");
+    ctx.font="30px Arial";
+    ctx.fillText("Hello World",20,60);
+
+    c=document.getElementById("canvas_5");
+    ctx=c.getContext("2d");
+    ctx.font="30px Arial";
+    ctx.strokeText("Hello World",20,60);
+
+    c=document.getElementById("canvas_6");
+    ctx=c.getContext("2d");
+    // 创建渐变
+    grd=ctx.createLinearGradient(0,0,200,0);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    // 填充渐变
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,200,100);
+
+    c=document.getElementById("canvas_7");
+    ctx=c.getContext("2d");
+    // 创建渐变
+    grd=ctx.createRadialGradient(100,50,5,100,50,100);
+    grd.addColorStop(0,"red");
+    grd.addColorStop(1,"white");
+    // 填充渐变
+    ctx.fillStyle=grd;
+    ctx.fillRect(0,0,200,100);
+
+
+
+</script>
+
+</body>
+</html>

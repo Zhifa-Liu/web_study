@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5新的表单元素</title>
+</head>
+<body>
+
+<h3>datalist</h3>
+<form>
+    <label>
+        <input list="browsers" name="browser">
+    </label>
+    <datalist id="browsers"><!--规定输入域的选项列表-->
+        <option value="Internet Explorer">
+        <option value="Firefox">
+        <option value="Chrome">
+        <option value="Opera">
+        <option value="Safari">
+    </datalist>
+    <input type="submit">
+</form>
+
+<h3>keygen</h3>
+<form action="" method="get">
+    UserName:
+    <label>
+        <input type="text" name="usr_name">
+    </label>
+    Secret: <keygen name="security"></keygen>><!--提供一种验证用户的可靠方法-->
+    <input type="submit">
+    <!--
+    当提交表单时，会生成两个键，一个是私钥，一个公钥;
+    私钥(private key)存储于客户端，公钥(public key)则被发送到服务器;
+    公钥可用于之后验证用户的客户端证书(client certificate)
+    -->
+</form>
+
+<h3>output</h3>
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+    <label for="a">
+        0<input type="range" id="a" value="50">100
+    </label>
+    +
+    <label for="b">
+        <input type="number" id="b" value="50">
+    </label>
+    =<output name="x" for="a b"></output>
+</form>
+
+</body>
+</html>

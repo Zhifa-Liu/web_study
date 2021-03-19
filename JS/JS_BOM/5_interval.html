@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 计时事件</title>
+</head>
+<body>
+
+<p>时钟</p>
+<p id="demo"></p>
+<script>
+    const myVar = setInterval(function () {
+        myTimer()
+    }, 1000);
+
+    function myTimer(){
+        const d = new Date();
+        const t = d.toLocaleTimeString();
+        document.getElementById("demo").innerHTML=t;
+    }
+
+    function stopTimer(){
+        clearTimeout(t);
+        timer_is_on=0;
+    }
+</script>
+
+</body>
+</html>

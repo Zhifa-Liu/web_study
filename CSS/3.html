@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    多重样式优先级：
+    内联样式 Inline style > 内部样式 Internal style sheet >外部样式 External style sheet > 浏览器默认样式
+    -->
+
+    <!-- 外部样式 3.css --><!-- 设置：h3{color:blue;} -->
+    <link rel="stylesheet" type="text/css" href="3.css"/>
+    <style type="text/css">
+        /* 内部样式 */
+        h3 {
+            color:green;
+        }
+    </style>
+
+    <!--如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式。-->
+</head>
+<body>
+
+<h3>测试！</h3>
+
+</body>
+</html>

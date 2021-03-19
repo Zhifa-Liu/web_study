@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Window尺寸(涵盖所有浏览器)</title>
+</head>
+<body>
+
+<p id="demo"></p>
+<script>
+    const w = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+    const h = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+    x=document.getElementById("demo");
+    x.innerHTML="浏览器window宽度: " + w + ", 高度: " + h + "。"
+</script>
+
+</body>
+</html>

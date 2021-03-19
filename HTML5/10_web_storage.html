@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Web Storage</title>
+</head>
+<body>
+
+<h3>1</h3>
+<div id="a"></div>
+<script>
+    if(typeof(Storage)!=="undefined")
+    {
+        localStorage.sitename="菜鸟教程";<!--使用 key="sitename" 和 value="菜鸟教程" 创建一个 localStorage 键/值对-->
+        document.getElementById("a").innerHTML="网站名：" + localStorage.sitename;
+        localStorage.removeItem("sitename");
+    }
+    else
+    {
+        document.getElementById("result").innerHTML="对不起，您的浏览器不支持 web 存储。";
+    }
+</script>
+
+<h3>2 localStorage</h3>
+<p><button onclick="clickCounter_1()" type="button">Click to see click's times!</button></p>
+<div id="b"></div>
+<script>
+    function clickCounter_1()
+    {
+        if(typeof(Storage)!=="undefined")
+        {
+            if (localStorage.clickcount)
+            {
+                localStorage.clickcount=Number(localStorage.clickcount)+1;
+            }
+            else
+            {
+                localStorage.clickcount=1;
+            }
+            document.getElementById("b").innerHTML=" 已点击按钮 " + localStorage.clickcount + " 次 ";
+        }
+        else
+        {
+            document.getElementById("b").innerHTML="对不起，您的浏览器不支持 web 存储!";
+        }
+    }
+</script>
+
+<h3>3 sessionStorage</h3>
+<p><button onclick="clickCounter_2()" type="button">点我！</button></p>
+<div id="c"></div>
+<script>
+    function clickCounter_2()
+    {
+        if(typeof(Storage)!=="undefined")
+        {
+            if (sessionStorage.clickcount)
+            {
+                sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;
+            }
+            else
+            {
+                sessionStorage.clickcount=1;
+            }
+            document.getElementById("c").innerHTML="在这个会话中你已经点击了该按钮 " + sessionStorage.clickcount + " 次 ";
+        }
+        else
+        {
+            document.getElementById("result").innerHTML="抱歉，您的浏览器不支持 web 存储";
+        }
+    }
+</script>
+
+<h3>简单的网站列表程序</h3>
+<div style="border: 2px dashed #ccc;width:320px;text-align:center;">
+    <label for="siteName">网站名(key)：</label>
+    <input type="text" id="siteName" name="siteName" class="text"/>
+    <br/>
+    <label for="siteUrl">网 址(value)：</label>
+    <input type="text" id="siteUrl" name="siteUrl"/>
+    <br/>
+    <input type="button" onclick="save()" value="新增记录"/>
+    <hr/>
+    <label for="search_site">输入网站名：</label>
+    <input type="text" id="search_site" name="search_site"/>
+    <input type="button" onclick="find()" value="查找网站"/>
+    <p id="find_result"><br/></p>
+</div>
+<script>
+    //保存数据
+    function save(){
+        const site = new Object;
+        site.keyname = document.getElementById("keyname").value;
+        site.sitename = document.getElementById("sitename").value;
+        site.siteurl = document.getElementById("siteurl").value;
+        const str = JSON.stringify(site); // 将对象转换为字符串
+        localStorage.setItem(site.keyname,str);
+        alert("保存成功");
+    }
+    //查找数据
+    function find(){
+        const search_site = document.getElementById("search_site").value;
+        const str = localStorage.getItem(search_site);
+        const site = JSON.parse(str);
+        const find_result = document.getElementById("find_result");
+        find_result.innerHTML = search_site + "的网站名是：" + site.sitename + "，网址是：" + site.siteurl;
+    }
+</script>
+
+</body>
+</html>

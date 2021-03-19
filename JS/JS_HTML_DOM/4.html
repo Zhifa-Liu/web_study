@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>向文档中添加和移除元素</title>
+</head>
+<body>
+
+<h3>添加HTML元素</h3>
+<div id="div1">
+    <p id="p1">段落一</p>
+    <p id="p2">段落二</p>
+</div>
+
+<script>
+    const para = document.createElement("p");
+    const node = document.createTextNode("新段落");//为 <p> 元素创建一个新的文本节点
+    para.appendChild(node);//将文本节点添加到 <p> 元素中
+
+    const element = document.getElementById("div1");
+    element.appendChild(para);
+</script>
+
+<h3>移除HTML元素</h3>
+<div id="div2">
+    <p id="p3">这是一个段落。</p>
+    <p id="p4">这是另外一个段落。</p>
+</div>
+
+<script>
+    const parent = document.getElementById("div2");
+    const child = document.getElementById("p4");
+    parent.removeChild(child);//child.parentNode.removeChild(child);
+</script>
+
+<h3>替换HTML元素</h3>
+<div id="div3">
+    <p id="p5">这是一个段落。</p>
+    <p id="p6">这是另外一个段落。</p>
+</div>
+
+<script>
+    const para = document.createElement("p");
+    const node = document.createTextNode("这是一个新的段落。");
+    para.appendChild(node);
+
+    const parent = document.getElementById("div3");
+    const child = document.getElementById("p6");
+    parent.replaceChild(para, child);
+</script>
+
+</body>
+</html>

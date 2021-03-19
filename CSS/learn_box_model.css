@@ -1,0 +1,123 @@
+/*
+CSS 盒子模型
+ */
+
+/*
+Margin(外边距) - 清除边框外的区域，外边距是透明的;
+Border(边框) - 围绕在内边距和内容外的边框;
+Padding(内边距) - 清除内容周围的区域，内边距是透明的;
+Content(内容) - 盒子的内容，显示文本和图像;
+
+总元素的宽度=宽度+左填充+右填充+左边框+右边框+左边距+右边距
+总元素的高度=高度+顶部填充+底部填充+上边框+下边框+上边距+下边距
+
+ */
+div {
+    width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}
+
+
+
+/*
+外边距：
+CSS margin(外边距)属性定义元素周围的空间;
+margin 清除周围的(外边框)元素区域;margin 没有背景颜色，是完全透明的;
+margin 可以单独改变元素的上，下，左，右边距，也可以一次改变所有的属性;
+
+auto 设置浏览器边距, 这样做的结果会依赖于浏览器
+length 定义一个固定的margin(使用像素，pt，em等)
+% 定义一个使用百分比的边距(基于包含它的块级对象的百分比高度)
+
+margin:25px 50px 75px 100px;
+上边距为25px
+右边距为50px
+下边距为75px
+左边距为100px
+
+margin:25px 50px 75px;
+上边距为25px
+左右边距为50px
+下边距为75px
+
+margin:25px 50px;
+上下边距为25px
+左右边距为50px
+
+margin:25px;
+所有的4个边距都是25px
+ */
+
+h3{
+    margin: 100px 50px;
+}
+
+
+
+/*
+边框：
+边框样式：border-style
+边框宽度：border-width
+边框颜色：border-color
+
+border-style:dotted solid double dashed;
+上边框是 dotted
+右边框是 solid
+底边框是 double
+左边框是 dashed
+
+border-style:dotted solid double;
+上边框是 dotted
+左、右边框是 solid
+底边框是 double
+
+border-style:dotted solid;
+上、底边框是 dotted
+右、左边框是 solid
+
+border-style:dotted;
+四面边框是 dotted
+ */
+
+/*边框-单独设置各边*/
+p
+{
+    border-top-style:dotted;
+    border-right-style:solid;
+    border-bottom-style:dotted;
+    border-left-style:solid;
+}
+
+
+
+/*
+内边距(填充)：
+CSS padding(填充)是一个简写属性，定义元素边框与元素内容之间的空间，即上下左右的内边距。
+当元素的 padding（填充）内边距被清除时，所释放的区域将会受到元素背景颜色的填充。
+单独使用 padding 属性可以改变上下左右的填充。
+
+length 定义一个固定的填充(像素, pt, em,等)
+% 使用百分比值定义一个填充
+
+padding:25px 50px 75px 100px;
+上填充为25px
+右填充为50px
+下填充为75px
+左填充为100px
+  padding:25px 50px 75px;
+上填充为25px
+左右填充为50px
+下填充为75px
+  padding:25px 50px;
+上下填充为25px
+左右填充为50px
+  padding:25px;
+所有的填充都是25px
+
+ */
+p{
+    padding:25px 50px;
+}
+

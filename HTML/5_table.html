@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML表格</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+    <style>
+        table {
+            width: 400Px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h4>一行三列:</h4>
+<table>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+</table>
+
+<!--表格由 <table> 标签来定义。每个表格均有若干行(由 <tr> 标签定义)，每行被分割为若干单元格(由 <td> 标签定义).-->
+<!--字母 td 指表格数据（table data），即数据单元格的内容。数据单元格可以包含文本、图片、列表、段落、表单、水平线、表格等等.-->
+<h4>两行三列:</h4>
+<table border="1">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+</table>
+<!--每个表格从一个 table 标签开始。每个表格行从 tr 标签开始。每个表格的数据从 td 标签开始。-->
+
+<h4>表头:</h4>
+<table border="1">
+    <tr>
+        <th>Header 1</th><!--表格的表头使用 <th> 标签进行定义-->
+        <th>Header 2</th>
+    </tr>
+    <tr>
+        <td>row 1, cell 1</td>
+        <td>row 1, cell 2</td>
+    </tr>
+    <tr>
+        <td>row 2, cell 1</td>
+        <td>row 2, cell 2</td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Telephone</th>
+        <th>Telephone</th>
+    </tr>
+    <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+    </tr>
+</table>
+
+<table border="1">
+    <tr>
+        <th>First Name:</th>
+        <td>Bill Gates</td>
+    </tr>
+    <tr>
+        <th>Telephone:</th>
+        <td>555 77 854</td>
+    </tr>
+    <tr>
+        <th>Telephone:</th>
+        <td>555 77 855</td>
+    </tr>
+</table>
+
+<h4>单元格跨两列:</h4>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th colspan="2">Telephone</th>
+    </tr>
+    <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+    </tr>
+</table>
+
+<h4>单元格跨两行:</h4>
+<table border="1">
+    <tr>
+        <th>First Name:</th>
+        <td>Bill Gates</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Telephone:</th>
+        <td>555 77 854</td>
+    </tr>
+    <tr>
+        <td>555 77 855</td>
+    </tr>
+</table>
+
+<h4>带有标题的表格:</h4>
+<table border="1" cellpadding="10" cellspacing="10">
+    <caption>Monthly savings</caption><!--<caption> 定义表格标题-->
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr>
+        <td>February</td>
+        <td>$50</td>
+    </tr>
+</table>
+
+</body>
+</html>

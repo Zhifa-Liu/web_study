@@ -1,0 +1,291 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>病历首页-医生看诊</title>
+    <link href="../css/common.css" rel="stylesheet" type="text/css">
+    <script>var __adobewebfontsappname__="dreamweaver"</script>
+    <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script>
+        function toMedicalRecordTab(){
+            document.getElementById("tab-1").className="tab-content";
+            document.getElementById("tab-2").className="tab-content tab-no-display";
+            document.getElementById("li-1").className="li current";
+            document.getElementById("li-2").className="li";
+        }
+		function toPrescriptionTab(){
+			document.getElementById("tab-1").className="tab-content tab-no-display";
+			document.getElementById("tab-2").className="tab-content";
+			document.getElementById("li-1").className="li";
+			document.getElementById("li-2").className="li current";
+		}
+		function chooseDisease(title,url){
+			layer.open({
+				type: 2,
+				title: title,
+				area: ['620px', '350px'],
+				content: [url, 'no']
+        	});
+		}
+		function addDrug(title,url){
+			layer.open({
+				type: 2,
+				title: title,
+				area: ['600px', '450px'],
+				content: [url, 'no']
+        	});
+		}
+		function openContinue(){
+			//根据后台结果
+			layer.msg("开立成功");
+			//清空表单
+		}
+    </script>
+    <style>
+        .flex_div{
+            display: flex;
+        }
+        .flex_item{
+            float:left;
+            margin-top: 0px;
+        }
+        .patient_div{
+            height: 260px;
+            width: 80%;
+            margin-left: 10%;
+            background-color: aliceblue;
+            margin-top: 6px;
+        }
+        .patient,#prescription_detail{
+            width:100%;
+            border: 1px;
+            font-size: 15px;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .patient th,#prescription_detail th{
+            text-align: left;
+            font-weight: 500;
+            background-color: aliceblue;
+        }
+        .patient td,.patient th{
+            border: 1px solid white;
+        }
+        #prescription_detail td,#prescription_detail th{
+            border: 1px solid white;
+        }
+        #left_div{
+            width: 25%;
+        }
+        #right_div{
+            width: 75%;
+        }
+        #content{
+            width:98%;
+			margin-top: 6px;
+        }
+        .tabs{
+            list-style: none;
+            margin: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom:0px;
+            height: 30px;
+            color: ;
+        }
+        .tabs .li{
+            float: left;
+            cursor: pointer;
+            padding: 0px 20px;
+            font-size: 13px;
+            height: 30px;
+            line-height: 30px;
+            background: #D0E7E8;
+            border-top: 1px solid #C5D0DC;
+            border-left: 1px solid #C5D0DC;
+            border-bottom: 1px solid #C5D0DC;
+        }
+		.tabs .current{
+			color: #D0E7E8;
+            background-color: aliceblue;
+            border-top: 2px solid #7599DE;
+            border-bottom: 0px;
+            font-size: 13px;
+        }
+        .tabs .li:last-child{
+            border-right: 1px solid #C5D0DC;
+        }
+        #houlder{
+            display: flex;
+        }
+        .tab-content{
+            background-color: aliceblue;
+            width: 100%;
+            height: 545px;
+            float: left;
+        }
+        .tab-no-display{
+            display: none;
+        }
+        .col_1{
+            width: 25%;
+        }
+        .col_2,.col_2 .input{
+            width: 70%;
+        }
+        .label_1{
+            font-size:15px;
+            margin-left: 25px;
+        }
+        .label_2{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="flex_div" style="width:100%; height: 600px; background: #D0E7E8;">
+    <div class="flex_item" id="left_div">
+        <input type="button" class="button" value="刷新" style="margin-left: 10%;">
+        <div class="patient_div">
+            <label class="label" style="margin-top: 20px;">未诊患者: </label>
+            <table class="patient" id="u_patient">
+                <tbody>
+                <tr>
+                    <th><label>病历号</label></th>
+                    <th><label>姓名&nbsp;&nbsp;&nbsp;&nbsp;</label></th>
+                    <th><label>年龄</label></th>
+                </tr>
+                <tr>
+                    <td>暂无&nbsp;</td>
+                    <td>暂无&nbsp;</td>
+                    <td>暂无&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="patient_div">
+            <label class="label label_2" style="margin-top: 20px;">已诊患者: </label>
+            <table class="patient" id="t_patient">
+                <tbody>
+                <tr>
+                    <th><label>病历号</label></th>
+                    <th><label>姓名</label></th>
+                    <th><label>年龄</label></th>
+                </tr>
+                <tr>
+                    <td>暂无&nbsp;</td>
+                    <td>暂无&nbsp;</td>
+                    <td>暂无&nbsp;</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="flex_item" id="right_div">
+        <div id="content">
+            <ul class="tabs">
+                <li class="li current" id="li-1" onClick="javascript:toMedicalRecordTab()"><a href="#tab-1">病历首页</a></li>
+                <li class="li" id="li-2" onClick="javascript:toPrescriptionTab()"><a href="#tab-2">处方开立</a></li>
+            </ul>
+            <div id="holder">
+                <div class="tab-content" id="tab-1">
+                    <div>
+                        <table width="100%" height="490" border="0">
+                            <tbody>
+							<tr>
+								<td class="col_1"><label class="label">当前患者</label></td>
+								<td class="col_2">
+									<label><input class="input" id="cur_patient" placeholder="患者信息"></label>
+								</td>
+							</tr>
+                            <tr>
+                                <td class="col_1"><label class="label">病史内容</label></td>
+                                <td class="col_2">
+                                    <label><input type="button" value="开始诊断" class="button" style="margin-left: 5px;"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label label_1">主诉:</label></td>
+                                <td class="col_2"><input type="text" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label label_1">既往史:</label></td>
+                                <td class="col_2"><input type="text" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label label_1">过敏史:</label></td>
+                                <td class="col_2"><input type="text" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label">评估/诊断</label></td>
+                                <td><label><input type="button" value="疾病选择"  class="button" style="margin-left: 5px;" onClick="chooseDisease('疾病选择','disease_popup.html')"></label></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label label_1">诊断结果:</label></td>
+                                <td class="col_2"><input type="text" class="input" readonly></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label label_1">建议:</label></td>
+                                <td class="col_2"><input type="text" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1"><label class="label label_1">注意事项:</label></td>
+                                <td class="col_2"><input type="text" class="input"></td>
+                            </tr>
+                            <tr>
+                                <td class="col_1">&nbsp;</td>
+                                <td class="col_2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <!--<td><label><input type="button" value="开立处方" class="button" style="margin-left: 30px;"></label></td>-->
+                                <td></td>
+                                <td><label><input type="button" value="提交" class="button" style="margin-left: 5px;" onClick="toPrescriptionTab()"></label></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-content tab-no-display" id="tab-2">
+                    <div>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td><label class="label">门诊诊断结果: </label></td>
+                                <td><input class="input" type="text" style="width:400px;" readonly></td>
+                            </tr>
+                            <tr>
+                                <td><label>处方明细:</label></td>
+                                <td><input class="button" type="button" value="开立" onClick="openContinue()"></td>
+                                <td><input class="button" type="button" value="增药" onClick="addDrug('选择药品','drug_popup.html')"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="height: 300px">
+                        <table id="prescription_detail" border="0">
+                            <tbody>
+                            <tr>
+                                <th scope="col"><label>药品编码</label></th>
+                                <th scope="col"><label>药品名称&nbsp;&nbsp;&nbsp;</label></th>
+                                <th scope="col"><label>单价</label></th>
+                                <th scope="col"><label>规格&nbsp;&nbsp;</label></th>
+                                <th scope="col"><label>数量</label></th>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

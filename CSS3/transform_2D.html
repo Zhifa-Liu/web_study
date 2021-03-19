@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2D Transform</title>
+    <style>
+        div
+        {
+            width:200px;
+            height:100px;
+            background-color: #ffcafb;
+            transform:translate(400px,100px) rotate(30deg) scale(0.8,0.8) skew(30deg,0deg);
+            -ms-transform:translate(400px,100px) rotate(30deg) scale(0.8,0.8) skew(30deg,0deg); /* IE 9 */
+            -webkit-transform:translate(400px,100px) rotate(30deg) scale(0.8,0.8) skew(30deg,0deg); /* Safari and Chrome */
+            /*
+            translate(x,y) 定义 2D 转换，沿着 X 和 Y 轴移动元素;
+            rotate(angle) 定义 2D 旋转，在参数中规定角度(顺时针);
+            scale(x,y) 定义 2D 缩放转换，改变元素的宽度和高度;
+            skew(x-angle,y-angle) 定义 2D 倾斜转换，沿着 X 和 Y 轴;
+            */
+        }
+        div#matrix
+        {
+            width:200px;
+            height:100px;
+            background-color: #a9fff2;
+            transform:matrix(0.866,0.5,-0.5,0.866,0,0);
+            -ms-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* IE 9 */
+            -webkit-transform:matrix(0.866,0.5,-0.5,0.866,0,0); /* Safari and Chrome */
+            /*matrix(n,n,n,n,n,n) 定义 2D 转换，使用六个值的矩阵。*/
+        }
+    </style>
+</head>
+<body>
+
+<div>Hello!</div>
+<div id="matrix">Hello!</div>
+
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+@charset "utf-8";
+*{
+    box-sizing: border-box;
+ }
+/* Body */
+body {
+	font-family: source-sans-pro;
+	background-color: #f2f2f2;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-style: normal;
+	font-weight: 200;
+}
+/* Navigation */
+header {
+	width: 100%;
+	height: 50px;
+	background: linear-gradient(to right, white, #52bad5);
+	border-bottom: 1px solid #2C9AB7;
+}
+nav {
+	float: right;
+	width: 50%;
+	text-align: right;
+	margin-right: 25px;
+}
+header nav ul {
+	list-style: none;
+	float: right;
+}
+nav ul li {
+	float: left;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	margin-right: 25px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	transition: all 0.3s linear;
+}
+ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+ul li:hover a {
+	color: #2C9AB7;
+}
+/* Page Title */
+.title{
+	color: lightblue;
+	margin-left: 15px;
+}
+/* Container */
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	background-color: #FFFFFF;
+}
+/* Copyright */
+.copyright {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #717070;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	border-top-width: 2px;
+}
+/* Label \ TextField \ Button */
+.label{
+	color: black;
+	text-align: left;
+	padding-top: 12px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	letter-spacing: 1px;
+}
+.input{
+	height: 36px;
+	margin: 5px;
+	border: 2px solid #FFFFFF;
+	border-radius: 2px;
+	opacity: 0.8;
+}
+.input:focus{
+	border-color:antiquewhite;
+}
+.input[type="date"]{
+	height: 30px;
+}
+.input[type="date"]::-webkit-inner-spin-button { visibility: hidden; }
+.input_cb{
+	display: flex;
+	justify-content: center;
+}
+.button {
+	width: 90px;
+	height: 30px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 3px;
+	border: 1px solid #FFFFFF;
+	font-weight: 500;
+	letter-spacing: 1px;
+	color: #FFFFFF;
+	background-color: #D0E7E8;
+	transition: all 0.3s linear;
+	opacity: 0.8;
+}
+.button:hover {
+	background-color: #FEFEFE;
+	color: #C4C4C4;
+	cursor: pointer;
+}
+/* Menu \ Vertical Menu */
+.menu{
+	background-color: #D0E7E8;
+	color: white;
+	font-size: 16px;
+	display: block;
+	padding: 12px;
+	text-decoration-style: dashed;
+	border: 1px solid #FFFFFF;
+}
+.vertical-menu {
+    width: 60%;
+}
+.vertical-menu a {
+	background-color: #D0E7E8;
+	color: black;
+	display: block;
+	padding: 12px;
+	text-decoration: none;
+}
+.vertical-menu a:hover {
+	background-color: aliceblue;
+}
+.vertical-menu a.active {
+	background-color: #4CAF50;
+	color: white;
+}

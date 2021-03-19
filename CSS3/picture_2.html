@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式图片与图片文本定位</title>
+    <style>
+        /*
+        响应式图片会自动适配各种尺寸的屏幕
+         */
+        img#pic1 {
+            max-width: 100%;
+            height: auto;
+        }/*如果你需要自由缩放图片，且图片放大的尺寸不大于其原始的最大值，则可使用以下代码*/
+
+        .container {
+            position: relative;
+        }
+
+        .topright {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            font-size: 18px;
+        }
+
+        img#pic2 {
+            width: 100%;
+            height: auto;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+<h3>响应式图片</h3>
+<img id="pic1" src="picture_trolltunga.jpg" alt="Norway" width="1000" height="300">
+
+<h3>图片文本定位</h3>
+<div class="container">
+    <img id="pic2" src="picture_trolltunga.jpg" alt="Norway" width="1000" height="300">
+    <div class="topright">右上角</div>
+</div>
+
+</body>
+</html>

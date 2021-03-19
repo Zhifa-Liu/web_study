@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>收费详情</title>
+    <link href="../css/common.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script>
+        function computeChange(){
+            var all_price = Number(document.getElementById("all").value);
+            var all_pay = Number(document.getElementById("pay").value);
+            if (all_pay>=all_price){
+                document.getElementById("change").value = all_pay - all_price;
+            }else{
+                layer.msg("请检查实交金额");
+            }
+        }
+        function submit(){
+            var all_price = Number(document.getElementById("all").value);
+            var all_pay = Number(document.getElementById("pay").value);
+            var change = Number(document.getElementById("change").value);
+            console.log(change);
+            layer.closeAll();
+        }
+    </script>
+</head>
+<body style="height:255px;background-color: #D0E7E8;">
+<div>
+    <table width="420" height="255" border="0" style="display: flex;justify-content: center;">
+        <tbody>
+		<tr>
+			<td><label class="label">病历号:</label></td>
+            <td><input type="text" name="mrn" class="input" id="mrn" readonly></td>
+		</tr>
+        <tr>
+            <td><label class="label">总费用:</label></td>
+            <td><input type="text" name="all" class="input" id="all" readonly></td>
+        </tr>
+        <tr>
+            <td><label class="label">实交:</label></td>
+            <td><input type="text" name="pay" class="input" id="pay" onburl="computeChange()"></td>
+        </tr>
+        <tr>
+            <td><label class="label">找零:</label></td>
+            <td><input type="text" name="change" class="input" id="change" readonly></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="button" class="button" value="收费" onClick="submit()"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

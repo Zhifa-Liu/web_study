@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>药品弹出</title>
+	<link href="../css/common.css" rel="stylesheet" type="text/css">
+    <style>
+        #drug_div{
+            width: 700px;
+            height: 450px;
+            text-align: center;
+            background: #D0E7E8;
+            padding-top: 1px;
+        }
+        #drug{
+            width: 90%;
+            margin-top: 10px;
+            margin-left:auto;
+            margin-right: auto;
+			margin-bottom: 10px;
+            font-size: 15px;
+            border: 1px;
+            border-collapse: collapse;
+        }
+        #drug th{
+            text-align: left;
+            font-weight: 500;
+            background-color: #D0E7E8;
+        }
+        #drug td,#drug th{
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+<div id="drug_div">
+    <label style="display: inline-block;margin-top: 20px">药品选择</label>
+	<div style="text-align:left;margin-left:30px;">
+		<label class="label">选择的药品信息:</label><input type="text" class="input" style="width:70%" id="cur_drug" placeholder="药品信息" readonly><br>
+		<label class="label">设置药品的数量:</label><input type="text" class="input" id="cur_drug_count" placeholder="输入药品数量">
+	</div>
+    <table id="drug">
+        <tbody>
+        <tr>
+            <th scope="col"><label>药品编码</label></th>
+            <th scope="col"><label>药品名称&nbsp;&nbsp;&nbsp;</label></th>
+            <th scope="col"><label>单价</label></th>
+            <th scope="col"><label>规格&nbsp;&nbsp;</label></th>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

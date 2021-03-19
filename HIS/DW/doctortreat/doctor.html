@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Doctor Treat</title>
+    <link href="../css/common.css" rel="stylesheet" type="text/css">
+    <script>var __adobewebfontsappname__="dreamweaver"</script>
+    <script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".menu").click(function(){
+                $(".vertical-menu").toggle();
+            });
+        });
+    </script>
+    <style>
+        .div_flex{
+            display:flex;
+            height: 600px;
+			background-color: #D0E7E8;
+        }
+        #left_div{
+            width:16%;
+            margin-top: 10px;
+        }
+        #right_div{
+            width: 84%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <img src="../images/neu_logo.PNG" width="80px" height="51pz" display="block" alt=""/>
+        <nav>
+            <ul>
+                <li><a href="#signout">SignOut&nbsp;</a></li>
+                <li><a href="#contact">Personal Information Manage&nbsp;</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 class="title">HIS-门诊医生界面&nbsp;</h2>
+    <div class="div_flex" border="0">
+        <div id="left_div" height="600px">
+            <div style="margin-left: 15px;">
+                <input type="button" class="menu" value="门诊医生操作" style="width: 80%;text-align: left;">
+                <div class="vertical-menu" style="width: 80%;display: none;">
+                    <a href="iframe_treat_pre.html" target="var_iframe">门诊病历</a>
+                    <a href="iframe_pre_model.html" target="var_iframe">处方模板管理*</a>
+                    <a href="iframe_ms_model.html" target="var_iframe">医技模板管理*</a>
+                </div>
+            </div>
+        </div>
+        <div id="right_div" height="auto" style="vertical-align: top;">
+            <iframe name="var_iframe" style="height:100%;width:100%;" src="iframe_treat_pre.html" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+    <div class="copyright">&copy;2020 - NEU <strong>&nbsp;</strong></div>
+</div>
+</body>
+</html>

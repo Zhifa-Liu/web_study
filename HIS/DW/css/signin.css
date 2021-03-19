@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* Sign Section */
+.sign {
+	background-color: #B3B3B3;
+	padding-top: 60px;
+	padding-bottom: 60PX;
+	margin-bottom: 0px;
+	background-image: url(../images/hospital.png);
+	background-repeat: repeat;
+}
+.hero_header {
+	color: #252222;
+	font: bold;
+	text-align: center;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	letter-spacing: 4px;
+}
+.sign_div{
+	display: flex;
+	justify-content: center;
+	margin-top:50px; 
+}
+
+.copyright {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #717070;
+	color: #FFFFFF;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	border-top-width: 2px;
+}

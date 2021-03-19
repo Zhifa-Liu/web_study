@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScripts 函数</title>
+</head>
+<body>
+
+<p>
+<form>
+    <input type="button"
+           onclick="function_1()"
+           value="Click">
+
+    <input type="button"
+           onclick="function_2('Good Morning!')"
+           value="Morning">
+    <input type="button"
+           onclick="function_2('Good Evening!')"
+           value="Evening">
+
+    <input type="button"
+           onclick="function_3('Liu', 'Student')"
+           value="Click">
+</form>
+</p>
+
+<p id="a"></p>
+<p id="b"></p>
+
+<script>
+    function myFunction(x, y = 10) {//默认参数
+        // y is 10 if not passed or undefined
+        return x + y;
+    }
+    // 输出 2
+    document.getElementById("a").innerHTML = myFunction(0, 2) ;
+    // 输出 15, y 参数的默认值
+    document.getElementById("b").innerHTML = myFunction(5);
+
+    function function_1(){
+        alert("你好，世界!");
+    }
+    function function_2(txt) {
+        alert(txt);
+    }
+    function function_3(name,job){
+        alert("Welcome " + name + ", the " + job);
+    }
+</script>
+
+
+</body>
+</html>

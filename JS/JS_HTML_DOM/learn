@@ -1,0 +1,78 @@
+当网页被加载时，浏览器会创建页面的文档对象模型(Document Object Model)
+
+通过 HTML DOM，可访问 HTML 文档的所有元素。
+
+通过可编程的对象模型，JavaScript 获得了足够的能力来创建动态的 HTML。
+JavaScript 能够改变页面中的所有 HTML 元素
+JavaScript 能够改变页面中的所有 HTML 属性
+JavaScript 能够改变页面中的所有 CSS 样式
+JavaScript 能够对页面中的所有事件做出反应
+
+通过 JavaScript 操作 HTML 元素:
+1.查找 HTML 元素：
+通过 id 找到 HTML 元素：document.getElementById("id");
+通过标签名找到 HTML 元素：document.getElementById("id").getElementsByTagName("tag");
+通过类名找到 HTML 元素: document.getElementsByClassName("class_name");
+2.改变 HTML ：
+2.1 改变 HTML 输出流：
+在 JavaScript 中，document.write() 可用于直接向 HTML 输出流写内容
+！在文档(DOM)加载完成之后使用 document.write()会覆盖文档
+2.2 改变 HTML 内容：
+修改 HTML 内容的最简单的方法是使用 innerHTML 属性
+2.3 改变 HTML 属性：
+document.getElementById(id).attribute=新属性值
+3.改变 CSS 样式：
+3.1
+document.getElementById(id).style.property=新样式
+3.2
+HTML DOM 允许我们通过触发事件来执行代码
+<button type="button" onclick="document.getElementById('id1').style.color='red'">Click!</button>
+
+JavaScript 事件处理:
+1.在事件发生时可以执行 JavaScript 代码
+2.HTML 事件属性：onclick
+3.HTML DOM 允许您使用 JavaScript 来向 HTML 元素分配事件：
+<script>
+document.getElementById("button").onclick=function(){displayDate()};
+</script>
+名为 displayDate 的函数被分配给 id="button" 的 HTML 元素
+4.常见事件：
+4.1 onload与onunload事件：
+onload 和 onunload 事件会在用户进入或离开页面时被触发。
+onload 事件可用于检测访问者的浏览器类型和浏览器版本，并基于这些信息来加载网页的正确版本。
+onload 和 onunload 事件可用于处理 cookie。
+4.2 onchange 事件:
+onchange 事件常结合对输入字段的验证来使用
+4.3 onmouseover 和 onmouseout 事件：
+onmouseover 和 onmouseout 事件可用于在用户的鼠标移至 HTML 元素上方或移出元素时触发函数
+4.4 onmousedown、onmouseup 以及 onclick 事件:
+onmousedown, onmouseup 以及 onclick 构成了鼠标点击事件的所有部分:
+当点击鼠标按钮时，会触发 onmousedown 事件;
+当释放鼠标按钮时，会触发 onmouseup 事件;
+当完成鼠标点击时，会触发 onclick 事件。
+
+5.EventListener
+addEventListener() 方法用于向指定元素添加事件句柄;
+addEventListener() 方法添加的事件句柄不会覆盖已存在的事件句柄, 故可以向一个元素添加多个事件句柄;
+可以向同个元素添加多个同类型的事件句柄;
+可以向任何 DOM 对象添加事件监听，不仅仅是 HTML 元素。如： window 对象;
+可以使用 removeEventListener() 方法来移除事件的监听;
+
+语法
+element.addEventListener(event, function, useCapture);
+第一个参数是事件的类型 (如 "click" 或 "mousedown").
+第二个参数是事件触发后调用的函数。
+第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。
+注意:不要使用 "on" 前缀。 例如，使用 "click" ,而不是使用 "onclick"。
+
+事件传递有两种方式：冒泡与捕获。
+事件传递定义了元素事件触发的顺序。 如果你将 <p> 元素插入到 <div> 元素中，用户点击 <p> 元素, 哪个元素的 "click" 事件先被触发呢？
+在 冒泡 中，内部元素的事件会先被触发，然后再触发外部元素，即： <p> 元素的点击事件先触发，然后会触发 <div> 元素的点击事件。
+在 捕获 中，外部元素的事件会先被触发，然后才会触发内部元素的事件，即： <div> 元素的点击事件先触发 ，然后再触发 <p> 元素的点击事件。
+
+6.HTML DOM 元素
+创建新的 HTML 元素 (节点) - appendChild()\insertBefore():
+要创建新的 HTML 元素 (节点)需要先创建一个元素，然后在已存在的元素中添加它。
+移除已存在的元素:
+要移除一个元素，你需要知道该元素的父元素。
+

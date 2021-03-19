@@ -1,0 +1,20 @@
+/*
+链接样式:
+链接的样式，可以使用任何CSS属性(如颜色，字体，背景等)
+链接状态：
+a:link - 正常，未访问过的链接
+a:visited - 用户已访问过的链接
+a:hover - 当用户鼠标放在链接上时
+a:active - 链接被点击的那一刻
+
+为若干链路状态设置样式，也有一些顺序规则：
+a:hover 必须跟在 a:link 和 a:visited后面
+a:active 必须跟在 a:hover后面
+
+链接样式的顺序记忆：
+L(link)OV(visited)E  and  H(hover)A(active)TE
+ */
+a:link {text-decoration:none;background-color: #75ffd6;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}

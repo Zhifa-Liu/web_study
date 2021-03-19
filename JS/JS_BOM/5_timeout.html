@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计时</title>
+</head>
+<body onload="startTime()">
+
+<script>
+
+    let c = 0;
+    let t;
+    let timer_is_on = 0;
+
+    function timedCount(){
+        document.getElementById('txt').value=c+"s";
+        t=setTimeout("timedCount()",1000);
+        c=c+1;
+    }
+    function doTimer(){
+        if (!timer_is_on)
+        {
+            timer_is_on=1;
+            timedCount();
+        }
+    }
+    function stopCount(){
+        clearTimeout(t);
+        timer_is_on=0;
+    }
+    /*function reset(){
+        timer_is_on=0;
+        c = 80;
+        clearTimeout(t);
+        document.getElementById('txt').value=c+"s";
+    }*/
+
+
+    function startTime(){
+        const today = new Date();
+        const h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();// 在小于10的数字前加一个‘0’
+        m=checkTime(m);
+        s=checkTime(s);
+        document.getElementById('time').innerHTML=h+":"+m+":"+s;
+        t=setTimeout(function(){startTime()},500);
+    }
+    function checkTime(i){
+        if (i<10){
+            i="0" + i;
+        }
+        return i;
+    }
+
+</script>
+
+<form>
+    <input type="button" value="开始计时!" onclick="doTimer()" />
+    <label for="txt"></label><input type="text" id="txt" />
+    <input type="button" value="停止计时!" onclick="stopCount()" />
+    <!--input type="button" value="复位" onclick="reset()" /-->
+</form>
+<br>
+<div id="time"></div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 闭包</title>
+</head>
+<body>
+
+<button type="button" onclick="myFunction()">计数!</button>
+<p id="demo">0</p>
+
+<script>
+    const add = (function () {
+        let counter = 0;
+        return function () {
+            return counter += 1;
+        }//自我调用函数只执行一次, 设置计数器为 0, 并返回函数表达式。
+    })();
+
+    function myFunction(){
+        document.getElementById("demo").innerHTML = add();
+    }
+</script>
+
+</body>
+</html>

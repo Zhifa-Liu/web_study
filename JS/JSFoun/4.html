@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript 消息框</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+    function function_1(){
+        alert("警告框！\nAttention");
+    }
+
+    function function_2(){
+        let x;
+        const r = confirm("Press!");
+        if (r === true){
+            x="按下\"确定\"按钮!";
+        }
+        else{
+            x="按下\"取消\"按钮!";
+        }
+        document.getElementById("demo").innerHTML=x;
+    }
+
+    function function_3(){
+        let x;
+        const person = prompt("请输入你的名字", "Harry Potter");
+        if (person!=null && person!==""){
+            x="你好 " + person + "! 今天感觉如何?";
+            document.getElementById("demo").innerHTML=x;
+        }
+    }
+</script>
+
+<input type="button" onclick="function_1()" value="显示警告框" />
+<input type="button" onclick="function_2()" value="显示确认框" />
+<input type="button" onclick="function_3()" value="显示提示框" />
+
+</body>
+</html>
